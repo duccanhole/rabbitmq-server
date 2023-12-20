@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  # worker:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: "rabbitmq_service_worker"
+  #   ports:
+  #     - "3000:4000"
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - rabbitmq
+  #   command: yarn start:dev
+  rabbitmq:
+    image: "rabbitmq"
+    hostname: "rabbitmq"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - /var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
