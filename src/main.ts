@@ -10,6 +10,7 @@ const AMQP_URL = process.env.AMQP_URL;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // await app.listen(3000);
+  console.log('connect to: ' + AMQP_URL);
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.RMQ,
     options: {
